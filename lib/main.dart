@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'app_menu.dart';
 import 'first_page.dart';
 import 'split_view.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp( const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {

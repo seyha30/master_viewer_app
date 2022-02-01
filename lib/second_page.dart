@@ -5,6 +5,16 @@ class SecondPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+        return Scaffold(
+      appBar: AppBar(
+        title: const Text('Second Page'),
+      ),
+      body: Center(
+        child: Text(
+          'First Page',
+          style: Theme.of(context).textTheme.headline1,
+        ),
+      ),
+    );
   }
 }

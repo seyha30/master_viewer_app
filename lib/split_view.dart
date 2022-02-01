@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'app_menu.dart';
 class SplitView extends StatelessWidget {
+
+
   final Widget menu;
   final Widget content;
   final double breakpoint;
