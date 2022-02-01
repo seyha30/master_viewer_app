@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-
-import 'first_page.dart';
-
 class SplitView extends StatelessWidget {
   final Widget menu;
   final Widget content;
@@ -26,7 +23,10 @@ class SplitView extends StatelessWidget {
             width: menuWidth,
             child: menu,
           ),
-          Container(width: 0.5, color: Colors.black),
+          Container(
+            width: 0.5,
+            color: Colors.black,
+          ),
           Expanded(
             child: content,
           ),
@@ -46,11 +46,3 @@ class SplitView extends StatelessWidget {
   }
 }
 
-class AppMenu extends StatelessWidget {
-  const AppMenu({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
