@@ -12,16 +12,16 @@ class MyApp extends ConsumerWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context , WidgetRef ref) {
-   // final selectedPageBuilder = ref.watch(selectedPageBuilderProvider);
+   final selectedPageBuilder = ref.watch(selectedPageBuilderProvider);
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const SplitView(
+        home: SplitView(
           menu: AppMenu(),
-          content: FirstPage(),
+          content: selectedPageBuilder(context),
         ));
   }
 }

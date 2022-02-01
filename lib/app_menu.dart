@@ -7,20 +7,24 @@ import 'package:master_viewer/second_page.dart';
 final selectedPageNameProvider = StateProvider<String>((ref) {
   return _availablePages.keys.first;
 });
+final selectedPageBuilderProvider = Provider<WidgetBuilder>((ref) {
+  // watch for state changes inside selectedPageNameProvider
+  final selectedPageKey = ref.watch(selectedPageNameProvider.state).state;
+  // return the WidgetBuilder using the key as index
+  return _availablePages[selectedPageKey]!;
+});
 final _availablePages = <String, WidgetBuilder>{
   'First Page': (_) => const FirstPage(),
   'Second Page': (_) => const SecondPage()
 };
 class AppMenu extends ConsumerWidget {
-  const AppMenu({Key? key}) : super(key: key);
+ AppMenu({Key? key}) : super(key: key);
 
 void _selectPage(BuildContext context, WidgetRef ref, String pageName) {
-  // only change the state if we have selected a different page
   if (ref.read(selectedPageNameProvider.state).state != pageName) {
     ref.read(selectedPageNameProvider.state).state = pageName;
   }
 }
-
 
   @override
   Widget build(BuildContext context , WidgetRef ref) {
@@ -35,6 +39,7 @@ void _selectPage(BuildContext context, WidgetRef ref, String pageName) {
           for (var pageName in _availablePages.keys) 
             PageListTile(
               pageName: pageName,
+              selectedPageName:selectedPageName ,
               onPressed: () =>_selectPage(context,ref,pageName)
             ),
         ],

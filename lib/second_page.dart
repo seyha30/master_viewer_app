@@ -11,7 +11,7 @@ class SecondPage extends StatelessWidget {
       ),
       body: Center(
         child: Text(
-          'First Page',
+          'Second Page',
           style: Theme.of(context).textTheme.headline1,
         ),
       ),

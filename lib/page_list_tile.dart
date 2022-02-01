@@ -14,9 +14,7 @@ class PageListTile extends StatelessWidget {
   final VoidCallback? onPressed;
   @override
   Widget build(BuildContext context) {
-    
     return ListTile(
-
       leading: Opacity(
         opacity: selectedPageName == pageName ? 1.0 : 0.0,
         child: Icon(Icons.check),
@@ -25,6 +23,4 @@ class PageListTile extends StatelessWidget {
       onTap: onPressed,
     );
   }
-
-
 }
